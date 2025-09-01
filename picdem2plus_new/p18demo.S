@@ -410,13 +410,14 @@ buzzer:
 		
 	movlw	0x0F			;turn buzzer on	
 	movwf	CCP1CON,a	
+	bra	pr2_out
 		
 pr2_again:			
 	btfsc	select			;increment PR2 ???
 	bra	pr2_out			;NO
 	call	delay_100ms		;YES
 	call	delay_100ms		
-	incf	PR2,F,a			;increment PR2
+	
 pr2_out:
 	movlw	0x85			;move cursor into position
 	movwf	temp_wr,a
@@ -427,6 +428,7 @@ pol1:
 	bra	inc_dc
 	btfsc	select			;wait for RB0 press
 	bra	pol1
+	incf	PR2,F,a			;increment PR2
 	
 	movlw	"P"
 	movwf	TXREG,a
@@ -483,13 +485,14 @@ inc_dc:
 	movwf	TXREG,a
 	btfss	TRMT
 	bra	$-2
+	bra ccpr1l_out
 
 inc_ccpr1l:	
 	btfsc	select			;increment CCPR1L ???
 	goto	ccpr1l_out		;NO
 	call	delay_100ms		;YES
 	call	delay_100ms
-	incf	CCPR1L,F,a		;increment CCPR1L
+	
 ccpr1l_out:
 	movlw	0x8C			;move cursor into position
 	movwf	temp_wr,a
@@ -500,6 +503,7 @@ col1:
 	bra	pwm_out
 	btfsc	select			;wait for RB0 press
 	bra	col1
+	incf	CCPR1L,F,a		;increment CCPR1L
 	
 	movlw	"D"			;send "DC="
 	movwf	TXREG,a
