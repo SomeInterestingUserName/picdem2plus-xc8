@@ -4,7 +4,8 @@ PIC18 Assembly Source Code for the demo on the Microchip PICDEM2+ Development bo
 ## Overview
 This repository contains source code for the PICDEM2+ demo program, intended for the PIC18F452. I found the original source code from Microchip (originally written in 2002!) and migrated it to the modern XC8 assembler. The repo contains the following folders:
 * `picdem2plus_orig`: The original PICDEM2+ 18F452 demo modernized as faithfully as possible.
-* `picdem2plus_new`: An improved version of the program with, for the first time in 23 years, a brand-new demo for the (in my opinion) much-underutilized LEDs
+* `picdem2plus_new`: An improved version of the program with bug fixes, improved serial printing, and, for the first time in 23 years, a brand-new demo for the (in my opinion) much-underutilized LEDs
+  * There's also an easter egg that can be revealed by doing a certain action when the program starts...can you figure it out from the source code? :)
 
 This project was based on source code from:
 * The original PIC18F452 demo: http://ww1.microchip.com/downloads/en/DeviceDoc/Sample.zip ([Archive](https://web.archive.org/web/20200910155654/http://ww1.microchip.com/downloads/en/DeviceDoc/Sample.zip))
